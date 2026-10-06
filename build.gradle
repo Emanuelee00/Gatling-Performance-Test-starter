@@ -21,8 +21,16 @@ gatling {
       include "**/simulation/*.scala"
   }
 }
+// src/test/scala holds the Maven simulations; Gradle should not compile them
+sourceSets {
+  test {
+    scala {
+      srcDirs = []
+    }
+  }
+}
 // 依赖配置
-dependencies { 
+dependencies {
  // 图表库，用于生成报告图表
  gatling 'io.gatling.highcharts:gatling-charts-highcharts:3.8.3'
  }
